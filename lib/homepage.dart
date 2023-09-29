@@ -11,15 +11,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int CurrentIndex = 0;
+  int CurrentIndex = 1;
   final pages = [
-    const MapPage(),
-    const Camera(),
+    MapPage(),
+    HomePageContent(),
+    Camera(),
   ]; // Initialize with the initial page index
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFCE9769),
+      backgroundColor: Color.fromRGBO(206, 151, 105, 1),
       body: Stack(
         children: [
           Positioned.fill(
@@ -32,6 +33,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       bottomNavigationBar: CurvedNavigationBar(
+        index: CurrentIndex,
         backgroundColor: const Color(0xFFaede71),
         color: const Color(0xffd5f191),
         animationDuration: const Duration(milliseconds: 300),
@@ -49,11 +51,29 @@ class _HomePageState extends State<HomePage> {
             size: 30,
           ),
           Icon(
+            Icons.home_filled,
+            color: Colors.white,
+            size: 30,
+          ),
+          // FloatingActionButton(onPressed: (){},),
+          Icon(
             Icons.camera_alt_rounded,
             color: Colors.white,
             size: 30,
           )
         ],
+      ),
+    );
+  }
+}
+class HomePageContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // Replace this with your homepage content
+    return Center(
+      child: Text(
+        "This is the Homepage",
+        style: TextStyle(fontSize: 24, color: Colors.white),
       ),
     );
   }
