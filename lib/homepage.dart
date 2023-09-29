@@ -66,6 +66,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
 class HomePageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
