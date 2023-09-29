@@ -1,14 +1,14 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-class Camera extends StatefulWidget {
-  const Camera({Key? key}) : super(key: key);
+class CameraWidget extends StatefulWidget {
+  const CameraWidget({Key? key}) : super(key: key);
 
   @override
-  State<Camera> createState() => _CameraState();
+  State<CameraWidget> createState() => _CameraState();
 }
 
-class _CameraState extends State<Camera> {
+class _CameraState extends State<CameraWidget> {
   late List<CameraDescription> cameras;
   CameraController? cameraController;
 
@@ -21,6 +21,11 @@ class _CameraState extends State<Camera> {
   Future<void> startCamera() async {
     cameras = await availableCameras();
 
+    if (cameras.isEmpty) {
+      print("No cameras available on this device.");
+      return;
+    }
+
     cameraController = CameraController(
       cameras[0],
       ResolutionPreset.low,
@@ -28,10 +33,10 @@ class _CameraState extends State<Camera> {
     );
     try {
       await cameraController!.initialize();
-      if (!mounted) {
-        setState(() {});
-      }
+
+      setState(() {});
     } catch (e) {
+      setState(() {});
       print(e);
     }
   }
@@ -46,10 +51,19 @@ class _CameraState extends State<Camera> {
   Widget build(BuildContext context) {
     if (cameraController != null && cameraController!.value.isInitialized) {
       return Scaffold(
-        body: Stack(
-          children: [
-            CameraPreview(cameraController!),
-          ],
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          decoration: BoxDecoration(color: Color(0xFFaede71)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Stack(
+                children: [
+                  CameraPreview(cameraController!),
+                ],
+              ),
+            ],
+          ),
         ),
       );
     } else {

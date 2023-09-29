@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   final pages = [
     MapPage(),
     HomePageContent(),
-    Camera(),
+    CameraWidget(),
   ]; // Initialize with the initial page index
   @override
   Widget build(BuildContext context) {
