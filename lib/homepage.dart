@@ -149,7 +149,12 @@ class _HomePageContentState extends State<HomePageContent> {
             right: 50,
             child: GestureDetector(
               onTap: () {
-                debugPrint('Image one has been tapped');
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return CustomDialog(name: 'Gaddi Baithak');
+                  },
+                );
               },
               child: Image.asset(
                 'assets/1.png',
@@ -161,7 +166,14 @@ class _HomePageContentState extends State<HomePageContent> {
             left: 90,
             child: GestureDetector(
               onTap: () {
-                debugPrint('Image two has been tapped');
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return CustomDialog(
+                      name: 'Taleju Bhawani',
+                    );
+                  },
+                );
               },
               child: Image.asset(
                 'assets/2.png',

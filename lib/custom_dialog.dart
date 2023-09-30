@@ -40,14 +40,47 @@ class _CustomDialogState extends State<CustomDialog> {
               height: 5,
             ),
             CustomCheckList(title: "I will but maybe or maybe not."),
-            FloatingActionButton(
-              onPressed: () {
-                // Use Navigator to navigate to a different page
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => MapPage(),
-                ));
-              },
-            )
+            const SizedBox(height: 20.0),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: FloatingActionButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => MapPage(),
+                        ),
+                      );
+                    },
+                    elevation: 4,
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                    child: Stack(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => MapPage(),
+                              ),
+                            );
+                          },
+                          child: Image.asset(
+                            'assets/map.png',
+                            width: 48,
+                            height: 48,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

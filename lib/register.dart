@@ -35,7 +35,7 @@ class Register extends StatelessWidget {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(3),
+                  contentPadding: const EdgeInsets.all(8),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
                       color: Colors.black,
@@ -72,7 +72,7 @@ class Register extends StatelessWidget {
               ),
               child: TextFormField(
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(3),
+                  contentPadding: const EdgeInsets.all(8),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
                       color: Colors.black,
@@ -108,8 +108,9 @@ class Register extends StatelessWidget {
                 maxWidth: 270,
               ),
               child: TextFormField(
+                obscureText: true,
                 decoration: InputDecoration(
-                  contentPadding: const EdgeInsets.all(3),
+                  contentPadding: const EdgeInsets.all(8),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
                       color: Colors.black,
