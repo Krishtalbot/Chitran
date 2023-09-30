@@ -45,7 +45,9 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return 
+    
+    Stack(
       children: [
         // Positioned.fill(
         //   child: Image.asset(
