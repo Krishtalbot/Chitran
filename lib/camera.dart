@@ -22,7 +22,7 @@ class _CameraState extends State<CameraWidget> {
     cameras = await availableCameras();
 
     if (cameras.isEmpty) {
-      print("No cameras available on this device.");
+      debugPrint("No cameras available on this device.");
       return;
     }
 

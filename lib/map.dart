@@ -64,12 +64,14 @@ class _MapPageState extends State<MapPage> {
                   enableTracking: true,
                   unFollowUser: false,
                 ),
+                
                 zoomOption: ZoomOption(
                   initZoom: 7,
                   minZoomLevel: 18,
                   maxZoomLevel: 19,
                   stepZoom: 2.0,
                 ),
+                
                 userLocationMarker: UserLocationMaker(
                   personMarker: MarkerIcon(
                     icon: Icon(
@@ -99,9 +101,13 @@ class _MapPageState extends State<MapPage> {
                 ),
               ),
             ),
+            
+
+            
           ),
         ),
       ],
     );
+    
   }
 }
