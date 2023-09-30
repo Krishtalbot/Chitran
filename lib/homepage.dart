@@ -55,7 +55,6 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
             size: 30,
           ),
-          // FloatingActionButton(onPressed: (){},),
           Icon(
             Icons.camera_alt_rounded,
             color: Colors.white,
@@ -70,11 +69,54 @@ class _HomePageState extends State<HomePage> {
 class HomePageContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // Replace this with your homepage content
-    return Center(
-      child: Text(
-        "This is the Homepage",
-        style: TextStyle(fontSize: 24, color: Colors.white),
+    return Scaffold(
+      body: Stack(
+
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+           Positioned.fill(
+            child: Image.asset(
+              'assets/background.png',
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            top: 10,
+            //bottom: 90,
+            left: 70,
+            right: 30,
+            child: GestureDetector(
+              onTap: () {
+                debugPrint('Image one has been tapped');
+              },
+              child: Image.asset('assets/1.png'),
+            ),
+          ),
+          Positioned(
+             top: 100,
+            bottom: 90,
+            left: 70,
+            right: 30,
+            child: GestureDetector(
+              onTap: () {
+                debugPrint('Image two has been tapped');
+              },
+              child: Image.asset('assets/2.png'),
+            ),
+          ),
+          Positioned(
+            top: 500,
+           // bottom: 500,
+            left: 200,
+            right: 30,
+            child: GestureDetector(
+              onTap: () {
+                debugPrint('Image three has been tapped');
+              },
+              child: Image.asset('assets/3.png'),
+            ),
+          ),
+        ],
       ),
     );
   }
