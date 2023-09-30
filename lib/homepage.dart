@@ -67,7 +67,69 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class HomePageContent extends StatelessWidget {
+class HomePageContent extends StatefulWidget {
+  @override
+  State<HomePageContent> createState() => _HomePageContentState();
+}
+
+class _HomePageContentState extends State<HomePageContent> {
+  bool isChecked1 = false;
+
+  bool isChecked2 = false;
+
+  Widget returnContent({required String name}) {
+    return Center(
+      child: Container(
+        padding: EdgeInsets.all(10),
+        height: 400,
+        width: 300,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
+            Text(
+              name,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600, // Fixed typo here (w6004 to w600)
+                color: Colors.brown,
+              ),
+            ),
+            // Add the checkboxes with text
+            Row(
+              children: [
+                Checkbox(
+                  value: isChecked1,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked1 = value!;
+                    });
+                  },
+                ),
+                Text("Option 1"),
+              ],
+            ),
+            Row(
+              children: [
+                Checkbox(
+                  value: isChecked2,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      isChecked2 = value!;
+                    });
+                  },
+                ),
+                Text("Option 2"),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,7 +179,7 @@ class HomePageContent extends StatelessWidget {
                   context: context,
                   builder: (context) {
                     return CustomDialog(
-                      name: "KalBhairav",
+                      name: "Kal Bhairav",
                     );
                   },
                 );
