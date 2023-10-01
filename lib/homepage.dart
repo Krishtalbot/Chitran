@@ -154,11 +154,9 @@ class _HomePageContentState extends State<HomePageContent> {
                   builder: (context) {
                     return CustomDialog(
                       name: 'Gaddi Baithak',
-                      dialog1:
-                          "Take some time to appreciate the \ntraditional Nepalese architecture.",
-                      dialog2:
-                          "Capture the beauty of the \nsurroundings and the Gaddi Baithak.",
-                      dialog3: "Savor traditional Nepalese dishes.",
+                      dialog1: "Step Back in Time.",
+                      dialog2: "Party Time.",
+                      dialog3: "Take Home a Piece of Nepal.",
                     );
                   },
                 );
@@ -179,10 +177,8 @@ class _HomePageContentState extends State<HomePageContent> {
                     return CustomDialog(
                       name: 'Taleju Bhawani',
                       dialog1: "Take part in a puja. (If allowed)",
-                      dialog2:
-                          "Learn about the history and \nsignificance of Taleju Bhawani.",
-                      dialog3:
-                          "Look for local handicrafts or \nsouvenirs near the temple.",
+                      dialog2: "Learn from Locals.",
+                      dialog3: "Respect Local Traditions.",
                     );
                   },
                 );
@@ -204,12 +200,9 @@ class _HomePageContentState extends State<HomePageContent> {
                   builder: (context) {
                     return CustomDialog(
                       name: "Kal Bhairav",
-                      dialog1:
-                          "Research and learn about Kal \nBhairav's significance in Hinduism",
-                      dialog2:
-                          "Engage in conversations with \nlocals or temple staff.",
-                      dialog3:
-                          "Take a moment for personal \nreflection or meditation.",
+                      dialog1: "Join the Celebration.",
+                      dialog2: "Capture the Moments.",
+                      dialog3: "Celebrate Local Festivals.",
                     );
                   },
                 );
