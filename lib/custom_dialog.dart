@@ -3,8 +3,15 @@ import 'package:chitran/map.dart';
 import 'package:flutter/material.dart';
 
 class CustomDialog extends StatefulWidget {
-  CustomDialog({super.key, required this.name});
+  CustomDialog({
+    Key? key,
+    required this.name,
+    required this.dialog1,
+    required this.dialog2,
+  }) : super(key: key);
   final String name;
+  final String dialog1;
+  final String dialog2;
 
   @override
   State<CustomDialog> createState() => _CustomDialogState();
@@ -34,12 +41,12 @@ class _CustomDialogState extends State<CustomDialog> {
               height: 5,
             ),
             CustomCheckList(
-              title: "Do something that is better",
+              title: widget.dialog1,
             ),
             SizedBox(
               height: 5,
             ),
-            CustomCheckList(title: "I will but maybe or maybe not."),
+            CustomCheckList(title: widget.dialog2),
             const SizedBox(height: 20.0),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,

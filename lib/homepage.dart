@@ -152,7 +152,11 @@ class _HomePageContentState extends State<HomePageContent> {
                 showDialog(
                   context: context,
                   builder: (context) {
-                    return CustomDialog(name: 'Gaddi Baithak');
+                    return CustomDialog(
+                      name: 'Gaddi Baithak',
+                      dialog1: "This is Gaddi Baithak 1",
+                      dialog2: "This is Gaddi Baithak 2",
+                    );
                   },
                 );
               },
@@ -171,6 +175,8 @@ class _HomePageContentState extends State<HomePageContent> {
                   builder: (context) {
                     return CustomDialog(
                       name: 'Taleju Bhawani',
+                      dialog1: "This is Taleju Bhawani 1",
+                      dialog2: "This is Taleju Bhawani 2",
                     );
                   },
                 );
@@ -192,6 +198,8 @@ class _HomePageContentState extends State<HomePageContent> {
                   builder: (context) {
                     return CustomDialog(
                       name: "Kal Bhairav",
+                      dialog1: "This is Kal Bhairav 1",
+                      dialog2: "This is Kal Bhairav 2",
                     );
                   },
                 );
