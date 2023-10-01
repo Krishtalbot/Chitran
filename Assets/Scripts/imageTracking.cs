@@ -1,26 +1,28 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.ARSubsystems;
 using UnityEngine.XR.ARFoundation;
 
 [RequireComponent(typeof(ARTrackedImageManager))]
-public class imageTracking : MonoBehaviour
+public class ImageTracking : MonoBehaviour
 {
     [SerializeField]
     private GameObject[] arObjectsToPlace;
+    
+    // Use Dictionary to store the instantiated AR objects.
+    private Dictionary<string, GameObject> arObjects = new Dictionary<string, GameObject>();
 
     [SerializeField]
     private Vector3 scaleFactor = new Vector3(0.1f, 0.1f, 0.1f);
 
     private ARTrackedImageManager m_TrackedImageManager;
 
-    private Dictionary<string, GameObject> arObjects = new Dictionary<string, GameObject>();
-
-    void Awake()
+    private void Awake()
     {
         m_TrackedImageManager = GetComponent<ARTrackedImageManager>();
     }
 
-    void OnEnable()
+    private void Start()
     {
         m_TrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
 
@@ -30,16 +32,16 @@ public class imageTracking : MonoBehaviour
             GameObject newARObject = Instantiate(arObject, Vector3.zero, Quaternion.identity);
             newARObject.name = arObject.name;
             newARObject.SetActive(false); // Initially set them to inactive
-            arObjects.Add(arObject.name, newARObject);
+            arObjects.Add(newARObject.name, newARObject);
         }
     }
 
-    void OnDisable()
+    private void OnDestroy()
     {
         m_TrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-    void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
+    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
@@ -69,22 +71,24 @@ public class imageTracking : MonoBehaviour
 
     private void UpdateARImage(ARTrackedImage trackedImage)
     {
-        string imageName = trackedImage.referenceImage.name;
-
-        if (arObjects.ContainsKey(imageName))
+        if (trackedImage.trackingState == TrackingState.Limited || trackedImage.trackingState == TrackingState.None)
         {
-            GameObject arObject = arObjects[imageName];
-            arObject.SetActive(trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking);
-
-            if (trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
+            if (arObjects.ContainsKey(trackedImage.referenceImage.name))
             {
-                arObject.transform.position = trackedImage.transform.position;
-                arObject.transform.localScale = scaleFactor;
+                GameObject arObject = arObjects[trackedImage.referenceImage.name];
+                arObject.SetActive(false);
             }
+            return;
         }
 
-        Debug.Log($"trackedImage.referenceImage.name: {imageName}");
+        if (arObjects.ContainsKey(trackedImage.referenceImage.name))
+        {
+            GameObject arObject = arObjects[trackedImage.referenceImage.name];
+            arObject.SetActive(true);
+            arObject.transform.position = trackedImage.transform.position;
+            arObject.transform.localScale = scaleFactor;
+        }
+
+        Debug.Log($"trackedImage.referenceImage.name: {trackedImage.referenceImage.name}");
     }
 }
-
-

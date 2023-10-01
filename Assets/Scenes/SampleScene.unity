@@ -403,9 +403,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arObjectsToPlace:
+  - {fileID: 2467349645778653782, guid: fedf5b0e0b9405744ad8699d168be6e8, type: 3}
+  - {fileID: 6161288437578753778, guid: 7bc63561a777170498b1b44b1458eb15, type: 3}
   - {fileID: 1974190722200821239, guid: f71a9d3a9706f784ba6008ae1a69f35e, type: 3}
   - {fileID: 2197731517646888015, guid: 7403d7633df9a54469ed0751d88abe49, type: 3}
+  - {fileID: 5406435960522508667, guid: 7b4bc6e3a2f6780438ec17c1ddf40998, type: 3}
+  - {fileID: 2305331424609928655, guid: e06b99f61eecc674b9a27edd75e09768, type: 3}
   - {fileID: 2754704251977252319, guid: c6648759883432d40b9c96f665eb33c2, type: 3}
+  - {fileID: 6062092822428066249, guid: 2dbdca6c0f6c03248a5e7cf35c78254b, type: 3}
   scaleFactor: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1 &1828601335
 GameObject:
