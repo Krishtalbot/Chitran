@@ -154,8 +154,11 @@ class _HomePageContentState extends State<HomePageContent> {
                   builder: (context) {
                     return CustomDialog(
                       name: 'Gaddi Baithak',
-                      dialog1: "This is Gaddi Baithak 1",
-                      dialog2: "This is Gaddi Baithak 2",
+                      dialog1:
+                          "Take some time to appreciate the \ntraditional Nepalese architecture.",
+                      dialog2:
+                          "Capture the beauty of the \nsurroundings and the Gaddi Baithak.",
+                      dialog3: "Savor traditional Nepalese dishes.",
                     );
                   },
                 );
@@ -175,8 +178,11 @@ class _HomePageContentState extends State<HomePageContent> {
                   builder: (context) {
                     return CustomDialog(
                       name: 'Taleju Bhawani',
-                      dialog1: "This is Taleju Bhawani 1",
-                      dialog2: "This is Taleju Bhawani 2",
+                      dialog1: "Take part in a puja. (If allowed)",
+                      dialog2:
+                          "Learn about the history and \nsignificance of Taleju Bhawani.",
+                      dialog3:
+                          "Look for local handicrafts or \nsouvenirs near the temple.",
                     );
                   },
                 );
@@ -198,8 +204,12 @@ class _HomePageContentState extends State<HomePageContent> {
                   builder: (context) {
                     return CustomDialog(
                       name: "Kal Bhairav",
-                      dialog1: "This is Kal Bhairav 1",
-                      dialog2: "This is Kal Bhairav 2",
+                      dialog1:
+                          "Research and learn about Kal \nBhairav's significance in Hinduism",
+                      dialog2:
+                          "Engage in conversations with \nlocals or temple staff.",
+                      dialog3:
+                          "Take a moment for personal \nreflection or meditation.",
                     );
                   },
                 );

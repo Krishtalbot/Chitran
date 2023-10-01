@@ -8,10 +8,12 @@ class CustomDialog extends StatefulWidget {
     required this.name,
     required this.dialog1,
     required this.dialog2,
+    required this.dialog3,
   }) : super(key: key);
   final String name;
   final String dialog1;
   final String dialog2;
+  final String dialog3;
 
   @override
   State<CustomDialog> createState() => _CustomDialogState();
@@ -21,6 +23,7 @@ class _CustomDialogState extends State<CustomDialog> {
   // Define variables to track the checkbox state
   bool isChecked1 = false;
   bool isChecked2 = false;
+  bool isChecked3 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +50,13 @@ class _CustomDialogState extends State<CustomDialog> {
               height: 5,
             ),
             CustomCheckList(title: widget.dialog2),
-            const SizedBox(height: 20.0),
+            SizedBox(
+              height: 5,
+            ),
+            CustomCheckList(
+              title: widget.dialog3,
+            ),
+            const SizedBox(height: 10.0),
             Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
